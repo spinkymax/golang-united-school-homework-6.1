@@ -1,7 +1,17 @@
 package golang_united_school_homework
 
-// Rectangle must satisfy to Shape interface
 type Rectangle struct {
 	Height, Weight float64
 }
+
+func (b Rectangle) CalcArea() float64 {
+	s := b.Height * b.Weight
+	return s
+}
+
+func (b Rectangle) CalcPerimepter() float64 {
+	p := 2 * (b.Height + b.Weight)
+	return p
+}
+
 

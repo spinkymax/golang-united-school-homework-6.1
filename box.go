@@ -94,7 +94,7 @@ func (b *box) RemoveAllCircles() error {
 	for i := len(b.shapes) - 1; i >= 0; i-- {
 		if _, ok := b.shapes[i].(*Circle); ok {
 			round++
-			b.shapes[i] = b.GetByIndex[len(b.GetByIndex)-b.shapes[i].(*Circle)]
+			b.shapes[i] = b.shapes = b.shapes[:len(b.shapes)-1]
 		}
 	}
 	return nil

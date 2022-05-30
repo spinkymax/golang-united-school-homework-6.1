@@ -66,9 +66,9 @@ func (b *box) ReplaceByIndex(i int, shape Shape) (Shape, error) {
 
 // SumPerimeter provides sum perimeter of all shapes in the list.
 func (b *box) SumPerimeter() float64 {
-	sum:=0.0
+	var sum float64=0
 	for _, number := range b.shapes {
-	sum += number.CalcPerimeter
+	sum += number.CalcPerimeter()
 	}
 	return sum
 
@@ -76,9 +76,9 @@ func (b *box) SumPerimeter() float64 {
 
 // SumArea provides sum area of all shapes in the list.
 func (b *box) SumArea() float64 {
-	sum:=0.0
+	var sum float64=0
 	for _, number := range b.shapes {
-	sum += number.CalcArea
+	sum += number.CalcArea()
 	}
 	return sum
 

@@ -49,7 +49,7 @@ func (b *box) ExtractByIndex(i int) (Shape, error) {
 		return nil, err
 	}
 
-	b.shapes = append(b.shapes[:i], b.shapes[i+1:])
+	b.shapes = append (b.shapes[:i], b.shapes[i+1:]...)
 	return x, err
 }
 
@@ -65,7 +65,8 @@ func (b *box) ReplaceByIndex(i int, shape Shape) (Shape, error) {
 }
 
 // SumPerimeter provides sum perimeter of all shapes in the list.
-func (b *box) SumPerimeter(sum float64) float64 {
+func (b *box) SumPerimeter() float64 {
+	sum:=0.0
 	for _, number := range b.shapes {
 	sum += number.CalcPerimeter
 	}
@@ -74,7 +75,8 @@ func (b *box) SumPerimeter(sum float64) float64 {
 }
 
 // SumArea provides sum area of all shapes in the list.
-func (b *box) SumArea(sum float64) float64 {
+func (b *box) SumArea() float64 {
+	sum:=0.0
 	for _, number := range b.shapes {
 	sum += number.CalcArea
 	}
@@ -92,7 +94,7 @@ func (b *box) RemoveAllCircles() error {
 	for i := len(b.shapes) - 1; i >= 0; i-- {
 		if _, ok := b.shapes[i].(*Circle); ok {
 			round++
-			b.shapes = append(b.shapes[:i], b.shapes[i+1:])
+			b.shapes = append (b.shapes[:i], b.shapes[i+1:]...)
 		}
 	}
 	return nil

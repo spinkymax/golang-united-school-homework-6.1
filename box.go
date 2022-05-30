@@ -57,7 +57,7 @@ func (b *box) ReplaceByIndex(i int, shape Shape) (Shape, error) {
 		return nil, errors.New("Sorry, but shape by index doesn't exist or index goes out of the range")
 	}
 	recoverShape := b.GetByIndex
-	return recoverShape
+	return recoverShape, nil
 
 }
 

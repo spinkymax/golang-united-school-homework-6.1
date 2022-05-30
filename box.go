@@ -44,10 +44,13 @@ func (b *box) ExtractByIndex(i int) (Shape, error) {
 	if len(b.shapes) < i || i < 0 {
 		return nil, errors.New("Sorry, but shape by index doesn't exist or index goes out of the range")
 	}
+	x, err := b.GetByIndex(i)
+	if err != nil {
+		return nil, err
+	}
 
-	b.shapes[i] = b.GetByIndex[len(b.GetByIndex)-1]
-	return b.shapes[i], nil
-
+	b.shapes = b.shapes[:len(b.shapes)-1]
+	return x, err
 }
 
 // ReplaceByIndex allows replacing shape by index and returns removed shape.
@@ -56,8 +59,8 @@ func (b *box) ReplaceByIndex(i int, shape Shape) (Shape, error) {
 	if len(b.shapes) < i || i < 0 {
 		return nil, errors.New("Sorry, but shape by index doesn't exist or index goes out of the range")
 	}
-	recoverShape := shape
-	return recoverShape, nil
+	recoverShape := b.shapes[i]
+	return recoverShape[i], nil
 
 }
 

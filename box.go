@@ -1,8 +1,7 @@
 package golang_united_school_homework
 
 import (
-	"errors"
-	"fmt"
+	"errors"	
 )
 
 // box contains list of shapes and able to perform operations on them
@@ -46,7 +45,7 @@ func (b *box) ExtractByIndex(i int) (Shape, error) {
 	}
 	x, err := b.GetByIndex(i)
 	if err != nil {
-		return nil, err
+		return nil, errors.New("Sorry, but shape by index doesn't exist or index goes out of the range")
 	}
 
 	b.shapes = append (b.shapes[:i], b.shapes[i+1:]...)
@@ -89,7 +88,7 @@ func (b *box) SumArea() float64 {
 func (b *box) RemoveAllCircles() error {
 	round := 0
 	if round == 0 {
-		return fmt.Errorf("Sorry, but circles are not exist in the list")
+		return  errors.New("Sorry, but circles are not exist in the list")
 	}
 	for i := len(b.shapes) - 1; i >= 0; i-- {
 		if _, ok := b.shapes[i].(*Circle); ok {

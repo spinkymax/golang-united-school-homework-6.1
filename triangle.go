@@ -11,7 +11,7 @@ func (b Triangle) CalcArea() float64 {
 	return s
 }
 
-func (b Triangle) CalcPerimepter() float64 {
+func (b Triangle) CalcPerimeter() float64 {
 	p := 3 * b.Side
 	return p
 }

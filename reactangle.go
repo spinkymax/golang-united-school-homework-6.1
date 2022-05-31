@@ -9,7 +9,7 @@ func (b Rectangle) CalcArea() float64 {
 	return s
 }
 
-func (b Rectangle) CalcPerimepter() float64 {
+func (b Rectangle) CalcPerimeter() float64 {
 	p := 2 * (b.Height + b.Weight)
 	return p
 }
